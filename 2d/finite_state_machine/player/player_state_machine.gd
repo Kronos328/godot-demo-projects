@@ -7,13 +7,8 @@ onready var stagger = $Stagger
 onready var attack = $Attack
 
 func _ready():
-	states_map = {
-		"idle": idle,
-		"move": move,
-		"jump": jump,
-		"stagger": stagger,
-		"attack": attack,
-	}
+	for state in get_children():
+		states_map[state.name.to_lower()] = state
 
 
 func _change_state(state_name):
